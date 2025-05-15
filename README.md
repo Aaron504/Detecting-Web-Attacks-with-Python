@@ -1,24 +1,45 @@
-# Detecting-Web-Attacks-with-Python
+# Detecting Web Attacks with Python
 <p align="center">
-<img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo"/>
+
+  ![Screenshot 2025-05-14 211806](https://github.com/user-attachments/assets/c41c5224-2cca-4c6f-a628-6c401b6d4a7a)
+
 </p>
 
-<h1>On-premises Active Directory Deployed in the Cloud (Azure)</h1>
-This tutorial outlines the implementation of on-premises Active Directory within Azure Virtual Machines.<br />
+<h1>Azure Cloud Python WAF Script: Detecting & Blocking Web Attacks in Real Time</h1>
+This project demonstrates a custom-built Python Web Application Firewall (WAF) deployed in Microsoft Azure to detect and block common web attacks in real time. Using two virtual machines, one acting as the attacker and the other as the target server — the WAF acts as a reverse proxy that filters HTTP traffic, identifies malicious payloads using regex detection patterns, and forwards only clean requests to the backend server.
+
+The WAF detects and blocks the following attacks:
+
+- SQL Injection (SQLi)
+- Cross-Site Scripting (XSS)
+- Command Injection
+- Insecure Direct Object Reference (IDOR)
+- Local File Inclusion (LFI)
+- Remote File Inclusion (RFI)
+
+This simulation mirrors a real-world security environment where incoming traffic is actively inspected and logged before reaching a live application. All attack attempts are logged with timestamps and attacker IP addresses for analysis and audit purposes.
 
 
 
 <h2>Environments and Technologies Used</h2>
 
 - Microsoft Azure (Virtual Machines/Compute)
-- Remote Desktop
-- Active Directory Domain Services
-- PowerShell
+- Python 3.12+ – Core language used to build the custom Web Application Firewall (WAF)
+- Flask – Python microframework used to build the reverse proxy WAF server
+- Requests – Python library used to forward clean traffic from the WAF to the backend server
+- Regex (re module) – Used to detect patterns of known web attack payloads
+- Apache2 (on Victim1 VM) – Used to simulate a vulnerable web application
+- Port 8080 – Apache listens here; WAF forwards clean traffic to this port
+
+
+
+
 
 <h2>Operating Systems Used </h2>
 
 - Windows Server 2022
 - Windows 10 (21H2)
+-  Ubuntu 22.04 LTS 
 
 <h2>High-Level Deployment and Configuration Steps</h2>
 
